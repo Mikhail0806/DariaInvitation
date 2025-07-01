@@ -59,7 +59,7 @@
     .hero {
       background: 
         linear-gradient(var(--bg-overlay), var(--bg-overlay)),
-        url('https://github.com/Mikhail0806/photos/blob/477c28ba8289863823b03007e4810d70ee6bb364/1.jpg?raw=true') no-repeat center/cover fixed;
+        url('https://github.com/Mikhail0806/photos/blob/477c28ba8289863823b03007e4810d70ee6bb364/1.jpg?raw=true') no-repeat center/cover;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -94,15 +94,15 @@
 
     .names {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.2rem, 3vw, 1.8rem); /* Увеличил размер шрифта */
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
       position: absolute;
       bottom: 40px;
-      left: 20px; /* Перенес в левый край */
+      right: 40px; /* Перемещено в правый угол */
       color: var(--light-text);
-      text-align: left; /* Выравнивание по левому краю */
-      padding: 10px 20px;
-      background-color: rgba(185, 142, 108, 0.2); /* Легкий акцентный фон */
-      border-radius: 4px;
+      /* Убраны все фоновые стили и рамки */
+      background: none;
+      padding: 0;
+      border-radius: 0;
     }
 
     /* Календарь */
@@ -143,7 +143,7 @@
       min-height: 400px;
       background: 
         linear-gradient(var(--bg-overlay), var(--bg-overlay)),
-        url('https://raw.githubusercontent.com/Mikhail0806/photos/2e25209366f9ffc369583b727311a5d617554279/page3.jpg') no-repeat center/cover fixed;
+        url('https://raw.githubusercontent.com/Mikhail0806/photos/2e25209366f9ffc369583b727311a5d617554279/page3.jpg') no-repeat center/cover;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -185,32 +185,32 @@
       display: flex;
       align-items: center;
       width: 100%;
-      max-width: 500px; /* Увеличил максимальную ширину */
-      margin: 15px 0; /* Увеличил отступы */
+      max-width: 500px;
+      margin: 15px 0;
     }
 
     .time-text {
-      width: 100px; /* Увеличил ширину для времени */
+      width: 100px;
       font-weight: 700;
       color: var(--primary-color);
       text-align: right;
       padding-right: 20px;
-      font-size: 1.4rem; /* Увеличил шрифт времени */
+      font-size: 1.4rem;
     }
 
     .event {
       text-align: left;
       flex-grow: 1;
-      font-size: 1.4rem; /* Увеличил шрифт событий */
+      font-size: 1.4rem;
       font-weight: 500;
-      color: #5a4b3c; /* Темнее для лучшей читаемости */
+      color: #5a4b3c;
     }
 
     /* Таймер */
     .countdown-section {
       background: 
         linear-gradient(var(--bg-overlay), var(--bg-overlay)),
-        url('https://github.com/Mikhail0806/photos/blob/main/IMG_2133.JPG?raw=true') no-repeat center/cover fixed;
+        url('https://github.com/Mikhail0806/photos/blob/main/IMG_2133.JPG?raw=true') no-repeat center/cover;
       color: var(--light-text);
       text-align: center;
       display: flex;
@@ -249,14 +249,19 @@
       margin-top: 5px;
     }
 
-    /* Адаптивность */
+    /* Оптимизация для мобильных устройств */
     @media (max-width: 768px) {
+      .hero,
+      .venue-image-container,
+      .countdown-section {
+        background-attachment: scroll !important;
+      }
+      
       .names {
         position: static;
         margin: 30px auto 0;
         text-align: center;
         width: fit-content;
-        background-color: transparent;
       }
       
       .time-text {
@@ -280,8 +285,6 @@
       
       .names {
         font-size: 1.3rem;
-        left: 15px;
-        bottom: 20px;
       }
       
       .time-text {

@@ -90,7 +90,7 @@
     
     .date-divider-text {
       font-family: 'Playfair Display', serif;
-      font-size: 3rem; /* Уменьшенный шрифт */
+      font-size: 2.5rem; /* Уменьшенный шрифт */
       color: var(--primary-color);
       font-weight: 700;
       letter-spacing: 2px;
@@ -203,18 +203,18 @@
     .venue-content {
       max-width: 800px;
       padding: 20px;
-      transform: translateY(-70px);
+      transform: translateY(-50px); /* Поднято выше */
     }
 
     .venue-title {
-      font-size: 2.2rem;
+      font-size: 2rem; /* Уменьшенный шрифт */
       margin-bottom: 30px;
       text-align: center;
     }
 
     .venue-address {
       margin-bottom: 30px;
-      font-size: 1.3rem;
+      font-size: 1.2rem; /* Уменьшенный шрифт */
     }
 
     .map-button {
@@ -246,7 +246,7 @@
     }
 
     .program-section .section-title {
-      margin-bottom: 60px; /* Увеличенный отступ под заголовком */
+      margin-bottom: 60px;
     }
 
     .schedule {
@@ -260,8 +260,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 35px; /* Увеличенный отступ между пунктами */
-      padding-bottom: 20px; /* Увеличенный внутренний отступ */
+      margin-bottom: 40px; /* Увеличенный отступ между пунктами */
+      padding-bottom: 20px;
       border-bottom: 1px solid rgba(185, 142, 108, 0.3);
       text-align: center;
     }
@@ -269,13 +269,13 @@
     .time-text {
       font-weight: 700;
       color: var(--primary-color);
-      font-size: clamp(1.7rem, 4vw, 1.9rem);
-      margin-bottom: 12px; /* Увеличенный отступ */
+      font-size: clamp(2rem, 4.5vw, 2.2rem); /* Увеличенный шрифт */
+      margin-bottom: 15px; /* Увеличенный отступ */
       font-family: 'Playfair Display', serif;
     }
 
     .event {
-      font-size: clamp(1.5rem, 3.5vw, 1.7rem);
+      font-size: clamp(1.8rem, 4vw, 2rem); /* Увеличенный шрифт */
       color: var(--text-color);
       font-weight: 500;
     }
@@ -330,7 +330,7 @@
       }
       
       .venue-content {
-        transform: translateY(-50px);
+        transform: translateY(-40px);
       }
       
       .program-section .section-title {
@@ -338,7 +338,7 @@
       }
       
       .date-divider-text {
-        font-size: 2.5rem; /* Уменьшенный шрифт */
+        font-size: 2.2rem;
       }
       
       .heart-icon-large {
@@ -348,8 +348,8 @@
       }
       
       .schedule-item {
-        margin-bottom: 30px;
-        padding-bottom: 15px;
+        margin-bottom: 35px;
+        padding-bottom: 18px;
       }
     }
 
@@ -359,7 +359,7 @@
       }
       
       .venue-content {
-        transform: translateY(-30px);
+        transform: translateY(-20px);
       }
       
       .program-section .section-title {
@@ -379,20 +379,21 @@
       }
       
       .schedule-item {
-        margin-bottom: 25px;
-        padding-bottom: 12px;
+        margin-bottom: 30px;
+        padding-bottom: 15px;
       }
       
       .time-text {
-        font-size: 1.5rem;
+        font-size: 1.8rem; /* Увеличенный шрифт для мобильных */
+        margin-bottom: 12px;
       }
       
       .event {
-        font-size: 1.3rem;
+        font-size: 1.6rem; /* Увеличенный шрифт для мобильных */
       }
       
       .date-divider-text {
-        font-size: 1.8rem; /* Уменьшенный шрифт */
+        font-size: 1.8rem;
       }
       
       .heart-icon-large {
@@ -413,7 +414,7 @@
     }
     
     .section-white p {
-      font-size: 1.2rem;
+      font-size: clamp(1.1rem, 2.5vw, 1.2rem); /* Уменьшенный шрифт для мобильных */
       line-height: 1.8;
       margin-bottom: 50px !important;
     }
@@ -426,7 +427,7 @@
 
     .calendar-footer {
       font-size: 1.3rem;
-      margin-top: 20px;
+      margin-top: 40px; /* Увеличенный отступ сверху */
     }
   </style>
 </head>

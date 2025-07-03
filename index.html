@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Приглашение на свадьбу Михаила и Дарьи 5 сентября 2025 года">
   
-  <!-- Preload шрифтов -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@400;700&display=swap" as="style">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@400;700&display=swap">
   
@@ -29,29 +28,31 @@
       color: var(--text-color);
       line-height: 1.6;
       overflow-x: hidden;
+      background-color: #fff;
     }
 
-    /* Общие стили для секций */
     section {
       min-height: 100vh;
-      padding: 60px 20px;
+      padding: 80px 20px;
       position: relative;
     }
 
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 5vw, 2.5rem);
-      margin-bottom: 40px;
+      font-size: 3.5rem;
+      margin-bottom: 60px;
       text-align: center;
+      color: var(--primary-color);
+      font-weight: 700;
+      letter-spacing: 1px;
     }
 
-    /* Разделитель */
     .divider {
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
       width: 80%;
       max-width: 600px;
-      margin: 40px auto;
+      margin: 60px auto;
       opacity: 0.3;
     }
 
@@ -97,12 +98,10 @@
       font-size: clamp(1.2rem, 3vw, 1.8rem);
       position: absolute;
       bottom: 40px;
-      right: 40px; /* Перемещено в правый угол */
+      right: 40px;
       color: var(--light-text);
-      /* Убраны все фоновые стили и рамки */
       background: none;
       padding: 0;
-      border-radius: 0;
     }
 
     /* Календарь */
@@ -136,11 +135,12 @@
     /* Место проведения */
     .venue-section {
       padding: 0;
+      min-height: 100vh;
     }
 
     .venue-image-container {
-      height: 60vh;
-      min-height: 400px;
+      height: 100vh;
+      min-height: 100vh;
       background: 
         linear-gradient(var(--bg-overlay), var(--bg-overlay)),
         url('https://raw.githubusercontent.com/Mikhail0806/photos/2e25209366f9ffc369583b727311a5d617554279/page3.jpg') no-repeat center/cover;
@@ -156,15 +156,29 @@
       padding: 20px;
     }
 
+    .venue-title {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .venue-address {
+      margin-bottom: 30px;
+      font-size: 1.4rem;
+    }
+
     .map-button {
-      display: inline-block;
+      display: flex;
+      margin: 0 auto;
       padding: 12px 30px;
       background-color: var(--primary-color);
       color: white;
       text-decoration: none;
       border-radius: 4px;
-      margin-top: 20px;
       transition: transform 0.3s, background-color 0.3s;
+      justify-content: center;
+      align-items: center;
+      width: fit-content;
     }
 
     .map-button:hover {
@@ -172,38 +186,40 @@
       transform: translateY(-2px);
     }
 
-    /* Программа */
+    /* Программа дня */
+    .program-section {
+      background-color: #fff;
+      padding: 80px 0;
+    }
+
     .schedule {
-      max-width: 600px;
+      max-width: 700px;
       margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      padding: 0 20px;
     }
 
     .schedule-item {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      width: 100%;
-      max-width: 500px;
-      margin: 15px 0;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(185, 142, 108, 0.3);
+      text-align: center;
     }
 
     .time-text {
-      width: 100px;
       font-weight: 700;
       color: var(--primary-color);
-      text-align: right;
-      padding-right: 20px;
-      font-size: 1.4rem;
+      font-size: 2rem;
+      margin-bottom: 10px;
+      font-family: 'Playfair Display', serif;
     }
 
     .event {
-      text-align: left;
-      flex-grow: 1;
-      font-size: 1.4rem;
+      font-size: 1.8rem;
+      color: var(--text-color);
       font-weight: 500;
-      color: #5a4b3c;
     }
 
     /* Таймер */
@@ -249,52 +265,34 @@
       margin-top: 5px;
     }
 
-    /* Оптимизация для мобильных устройств */
+    /* Адаптивность */
     @media (max-width: 768px) {
-      .hero,
-      .venue-image-container,
-      .countdown-section {
-        background-attachment: scroll !important;
+      .section-title {
+        font-size: 2.8rem;
+        margin-bottom: 40px;
       }
-      
-      .names {
-        position: static;
-        margin: 30px auto 0;
-        text-align: center;
-        width: fit-content;
-      }
-      
+
       .time-text {
-        width: 80px;
-        font-size: 1.2rem;
+        font-size: 1.8rem;
       }
-      
+
       .event {
-        font-size: 1.2rem;
+        font-size: 1.6rem;
       }
     }
 
     @media (max-width: 480px) {
-      section {
-        padding: 40px 15px;
+      .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 30px;
       }
-      
-      .calendar {
-        gap: 5px;
-      }
-      
-      .names {
-        font-size: 1.3rem;
-      }
-      
+
       .time-text {
-        width: 70px;
-        padding-right: 10px;
-        font-size: 1.1rem;
+        font-size: 1.6rem;
       }
-      
+
       .event {
-        font-size: 1.1rem;
+        font-size: 1.4rem;
       }
     }
   </style>
@@ -391,7 +389,7 @@
   <div class="divider"></div>
 
   <!-- Программа -->
-  <section class="section-white">
+  <section class="program-section">
     <h2 class="section-title">Программа дня</h2>
     <div class="schedule">
       <div class="schedule-item">

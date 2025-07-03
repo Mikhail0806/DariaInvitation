@@ -35,12 +35,14 @@
       min-height: 100vh;
       padding: 80px 20px;
       position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .section-title {
       font-family: 'Playfair Display', serif;
       font-size: 3.5rem;
-      margin-bottom: 60px;
       text-align: center;
       color: var(--primary-color);
       font-weight: 700;
@@ -54,6 +56,53 @@
       max-width: 600px;
       margin: 60px auto;
       opacity: 0.3;
+    }
+    
+    /* Новый разделитель с датой */
+    .date-divider {
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .date-divider-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 30px 50px;
+      background: white;
+    }
+    
+    .date-divider::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+      opacity: 0.3;
+      z-index: 1;
+    }
+    
+    .date-divider-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem; /* Уменьшенный шрифт */
+      color: var(--primary-color);
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+    
+    .heart-icon-large {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23b98e6c"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center/contain;
+      margin: 0 20px;
+      vertical-align: middle;
     }
 
     /* Главный экран */
@@ -154,17 +203,18 @@
     .venue-content {
       max-width: 800px;
       padding: 20px;
+      transform: translateY(-70px);
     }
 
     .venue-title {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
+      font-size: 2.2rem;
+      margin-bottom: 30px;
       text-align: center;
     }
 
     .venue-address {
       margin-bottom: 30px;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
     }
 
     .map-button {
@@ -189,21 +239,29 @@
     /* Программа дня */
     .program-section {
       background-color: #fff;
-      padding: 80px 0;
+      padding: 40px 0 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .program-section .section-title {
+      margin-bottom: 60px; /* Увеличенный отступ под заголовком */
     }
 
     .schedule {
       max-width: 700px;
       margin: 0 auto;
       padding: 0 20px;
+      width: 100%;
     }
 
     .schedule-item {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 30px;
-      padding-bottom: 20px;
+      margin-bottom: 35px; /* Увеличенный отступ между пунктами */
+      padding-bottom: 20px; /* Увеличенный внутренний отступ */
       border-bottom: 1px solid rgba(185, 142, 108, 0.3);
       text-align: center;
     }
@@ -211,13 +269,13 @@
     .time-text {
       font-weight: 700;
       color: var(--primary-color);
-      font-size: 2rem;
-      margin-bottom: 10px;
+      font-size: clamp(1.7rem, 4vw, 1.9rem);
+      margin-bottom: 12px; /* Увеличенный отступ */
       font-family: 'Playfair Display', serif;
     }
 
     .event {
-      font-size: 1.8rem;
+      font-size: clamp(1.5rem, 3.5vw, 1.7rem);
       color: var(--text-color);
       font-weight: 500;
     }
@@ -254,12 +312,12 @@
 
     .time-number {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 6vw, 2.8rem);
+      font-size: clamp(1.6rem, 5vw, 2.4rem);
       font-weight: 700;
     }
 
     .time-label {
-      font-size: clamp(0.7rem, 2vw, 1rem);
+      font-size: clamp(0.6rem, 1.8vw, 0.9rem);
       text-transform: uppercase;
       letter-spacing: 1px;
       margin-top: 5px;
@@ -269,46 +327,105 @@
     @media (max-width: 768px) {
       .section-title {
         font-size: 2.8rem;
-        margin-bottom: 40px;
       }
-
-      .time-text {
-        font-size: 1.8rem;
+      
+      .venue-content {
+        transform: translateY(-50px);
       }
-
-      .event {
-        font-size: 1.6rem;
+      
+      .program-section .section-title {
+        margin-bottom: 50px;
+      }
+      
+      .date-divider-text {
+        font-size: 2.5rem; /* Уменьшенный шрифт */
+      }
+      
+      .heart-icon-large {
+        width: 30px;
+        height: 30px;
+        margin: 0 15px;
+      }
+      
+      .schedule-item {
+        margin-bottom: 30px;
+        padding-bottom: 15px;
       }
     }
 
     @media (max-width: 480px) {
       .section-title {
         font-size: 2.2rem;
-        margin-bottom: 30px;
       }
-
-      .time-text {
-        font-size: 1.6rem;
+      
+      .venue-content {
+        transform: translateY(-30px);
       }
-
-      .event {
+      
+      .program-section .section-title {
+        margin-bottom: 40px;
+      }
+      
+      .countdown-section .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .time-number {
         font-size: 1.4rem;
+      }
+      
+      .time-label {
+        font-size: 0.6rem;
+      }
+      
+      .schedule-item {
+        margin-bottom: 25px;
+        padding-bottom: 12px;
+      }
+      
+      .time-text {
+        font-size: 1.5rem;
+      }
+      
+      .event {
+        font-size: 1.3rem;
+      }
+      
+      .date-divider-text {
+        font-size: 1.8rem; /* Уменьшенный шрифт */
+      }
+      
+      .heart-icon-large {
+        width: 25px;
+        height: 25px;
+        margin: 0 10px;
       }
     }
 
-    /* Увеличенные шрифты для второй страницы */
+    /* Вторая страница */
+    .section-white {
+      padding-top: 60px;
+    }
+    
+    .section-white .section-title {
+      margin-top: 0;
+      margin-bottom: 40px;
+    }
+    
     .section-white p {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       line-height: 1.8;
+      margin-bottom: 50px !important;
     }
 
     .section-white h3 {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
+      margin-top: 30px;
       margin-bottom: 20px;
     }
 
     .calendar-footer {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       margin-top: 20px;
     }
   </style>
@@ -331,7 +448,7 @@
   <section class="section-white">
     <h2 class="section-title">Дорогие гости!</h2>
     <div class="calendar-container">
-      <p style="max-width: 600px; margin: 0 auto 30px;">
+      <p style="max-width: 600px; margin: 0 auto;">
         Спешим сообщить радостную новость — мы женимся!<br>
         В этот день мы очень хотим оказаться в окружении самых близких и дорогих для нас людей.
       </p>
@@ -435,7 +552,14 @@
     </div>
   </section>
 
-  <div class="divider"></div>
+  <!-- Новый разделитель с датой между 4 и 5 страницами -->
+  <div class="date-divider">
+    <div class="date-divider-content">
+      <span class="heart-icon-large"></span>
+      <span class="date-divider-text">05.09.2025</span>
+      <span class="heart-icon-large"></span>
+    </div>
+  </div>
 
   <!-- Таймер -->
   <section class="countdown-section">

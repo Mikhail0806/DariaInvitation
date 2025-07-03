@@ -59,9 +59,9 @@
       opacity: 0.3;
     }
     
-    /* Новый разделитель с датой */
+    /* Новый разделитель с датой - ОБНОВЛЕНО */
     .date-divider {
-      height: 200px;
+      height: 150px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -73,8 +73,9 @@
       position: relative;
       z-index: 2;
       text-align: center;
-      padding: 30px 50px;
+      padding: 20px 40px;
       background: white;
+      transform: translateY(-20px);
     }
     
     .date-divider::before {
@@ -159,6 +160,11 @@
       max-width: 600px;
       margin: 0 auto;
       text-align: center;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: calc(100vh - 100px);
     }
 
     .calendar {
@@ -182,7 +188,7 @@
       font-weight: bold;
     }
 
-    /* Место проведения - ФИКСИРОВАНО */
+    /* Место проведения */
     .venue-section {
       padding: 0;
       min-height: 100vh;
@@ -208,19 +214,19 @@
     .venue-content {
       max-width: 800px;
       padding: 20px;
-      transform: translateY(0); /* СБРОС ТРАНСФОРМАЦИИ */
-      margin-top: 150px; /* ОПУЩЕНО НИЖЕ */
+      transform: translateY(0);
+      margin-top: 150px;
     }
 
     .venue-title {
-      font-size: 2.5rem; /* УВЕЛИЧЕННЫЙ ШРИФТ */
+      font-size: 2.5rem;
       margin-bottom: 30px;
       text-align: center;
     }
 
     .venue-address {
       margin-bottom: 30px;
-      font-size: 1.4rem; /* УВЕЛИЧЕННЫЙ ШРИФТ */
+      font-size: 1.4rem;
     }
 
     .map-button {
@@ -243,17 +249,17 @@
       transform: translateY(-2px);
     }
 
-    /* Программа дня - ФИКСИРОВАНО */
+    /* Программа дня */
     .program-section {
       background-color: #fff;
-      padding: 80px 0; /* УВЕЛИЧЕННЫЙ ОТСТУП */
+      padding: 80px 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
     .program-section .section-title {
-      margin-bottom: 80px; /* УВЕЛИЧЕННЫЙ ОТСТУП */
+      margin-bottom: 80px;
     }
 
     .schedule {
@@ -267,7 +273,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 80px; /* УВЕЛИЧЕННЫЙ ОТСТУП МЕЖДУ ПУНКТАМИ */
+      margin-bottom: 80px;
       padding-bottom: 20px;
       border-bottom: 1px solid rgba(185, 142, 108, 0.3);
       text-align: center;
@@ -276,13 +282,13 @@
     .time-text {
       font-weight: 700;
       color: var(--primary-color);
-      font-size: 2.5rem; /* УВЕЛИЧЕННЫЙ ШРИФТ */
+      font-size: 2.5rem;
       margin-bottom: 15px;
       font-family: 'Playfair Display', serif;
     }
 
     .event {
-      font-size: 2.2rem; /* УВЕЛИЧЕННЫЙ ШРИФТ */
+      font-size: 2.2rem;
       color: var(--text-color);
       font-weight: 500;
     }
@@ -330,6 +336,51 @@
       margin-top: 5px;
     }
 
+    /* ВТОРАЯ СТРАНИЦА - УМЕНЬШЕНА ВЫСОТА */
+    .section-white {
+      padding-top: 10px;
+      padding-bottom: 0;
+      justify-content: flex-start !important;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .section-white .section-title {
+      margin-top: 0;
+      margin-bottom: 15px;
+      padding-top: 10px;
+    }
+    
+    .section-white p {
+      font-size: clamp(1.1rem, 2.5vw, 1.2rem);
+      line-height: 1.8;
+      margin-bottom: 20px !important;
+    }
+
+    .calendar-footer {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      letter-spacing: 1px;
+      margin-top: auto;
+      padding: 15px 0 40px;
+      text-align: center;
+      position: relative;
+      width: 100%;
+    }
+    
+    .calendar-footer::before {
+      content: "";
+      display: block;
+      width: 100px;
+      height: 2px;
+      background: var(--primary-color);
+      margin: 0 auto 15px;
+      opacity: 0.3;
+    }
+
     /* Адаптивность */
     @media (max-width: 768px) {
       .section-title {
@@ -364,6 +415,20 @@
       
       .event {
         font-size: 2rem;
+      }
+      
+      .calendar-footer {
+        font-size: 2.2rem;
+        padding: 10px 0 30px;
+      }
+      
+      .date-divider {
+        height: 120px;
+      }
+      
+      .date-divider-content {
+        padding: 15px 30px;
+        transform: translateY(-15px);
       }
     }
 
@@ -414,35 +479,25 @@
         height: 25px;
         margin: 0 10px;
       }
-    }
-
-    /* Вторая страница - ФИКСИРОВАНО */
-    .section-white {
-      padding-top: 40px;
-      justify-content: flex-start !important;
-    }
-    
-    .section-white .section-title {
-      margin-top: 40px; /* ПОДНЯТ ВЫШЕ */
-      margin-bottom: 40px;
-    }
-    
-    .section-white p {
-      font-size: clamp(1.1rem, 2.5vw, 1.2rem);
-      line-height: 1.8;
-      margin-bottom: 30px !important;
-    }
-
-    .section-white h3 {
-      font-size: 1.6rem;
-      margin-top: 30px;
-      margin-bottom: 20px;
-    }
-
-    .calendar-footer {
-      font-size: 1.3rem;
-      margin-top: 80px !important; /* ОПУЩЕНО НИЖЕ */
-      padding-bottom: 40px;
+      
+      .calendar-footer {
+        font-size: 1.8rem;
+        padding: 8px 0 25px;
+      }
+      
+      .calendar-footer::before {
+        width: 70px;
+        margin-bottom: 10px;
+      }
+      
+      .date-divider {
+        height: 100px;
+      }
+      
+      .date-divider-content {
+        padding: 10px 20px;
+        transform: translateY(-10px);
+      }
     }
   </style>
 </head>
@@ -460,56 +515,59 @@
 
   <div class="divider"></div>
 
-  <!-- Приглашение -->
+  <!-- Приглашение (ВТОРАЯ СТРАНИЦА) -->
   <section class="section-white">
     <h2 class="section-title">Дорогие гости!</h2>
     <div class="calendar-container">
-      <p style="max-width: 600px; margin: 0 auto 30px;">
-        Спешим сообщить радостную новость — мы женимся!<br>
-        В этот день мы очень хотим оказаться в окружении самых близких и дорогих для нас людей.
-      </p>
-      
-      <h3>Сентябрь 2025</h3>
-      <div class="calendar">
-        <div class="day">Пн</div>
-        <div class="day">Вт</div>
-        <div class="day">Ср</div>
-        <div class="day">Чт</div>
-        <div class="day">Пт</div>
-        <div class="day">Сб</div>
-        <div class="day">Вс</div>
+      <div class="calendar-content">
+        <p style="max-width: 600px; margin: 0 auto 20px;">
+          Спешим сообщить радостную новость — мы женимся!<br>
+          В этот день мы очень хотим оказаться в окружении самых близких и дорогих для нас людей.
+        </p>
+        
+        <h3>Сентябрь 2025</h3>
+        <div class="calendar">
+          <div class="day">Пн</div>
+          <div class="day">Вт</div>
+          <div class="day">Ср</div>
+          <div class="day">Чт</div>
+          <div class="day">Пт</div>
+          <div class="day">Сб</div>
+          <div class="day">Вс</div>
 
-        <div class="day">1</div>
-        <div class="day">2</div>
-        <div class="day">3</div>
-        <div class="day">4</div>
-        <div class="day heart-day">5</div>
-        <div class="day">6</div>
-        <div class="day">7</div>
-        <div class="day">8</div>
-        <div class="day">9</div>
-        <div class="day">10</div>
-        <div class="day">11</div>
-        <div class="day">12</div>
-        <div class="day">13</div>
-        <div class="day">14</div>
-        <div class="day">15</div>
-        <div class="day">16</div>
-        <div class="day">17</div>
-        <div class="day">18</div>
-        <div class="day">19</div>
-        <div class="day">20</div>
-        <div class="day">21</div>
-        <div class="day">22</div>
-        <div class="day">23</div>
-        <div class="day">24</div>
-        <div class="day">25</div>
-        <div class="day">26</div>
-        <div class="day">27</div>
-        <div class="day">28</div>
-        <div class="day">29</div>
-        <div class="day">30</div>
+          <div class="day">1</div>
+          <div class="day">2</div>
+          <div class="day">3</div>
+          <div class="day">4</div>
+          <div class="day heart-day">5</div>
+          <div class="day">6</div>
+          <div class="day">7</div>
+          <div class="day">8</div>
+          <div class="day">9</div>
+          <div class="day">10</div>
+          <div class="day">11</div>
+          <div class="day">12</div>
+          <div class="day">13</div>
+          <div class="day">14</div>
+          <div class="day">15</div>
+          <div class="day">16</div>
+          <div class="day">17</div>
+          <div class="day">18</div>
+          <div class="day">19</div>
+          <div class="day">20</div>
+          <div class="day">21</div>
+          <div class="day">22</div>
+          <div class="day">23</div>
+          <div class="day">24</div>
+          <div class="day">25</div>
+          <div class="day">26</div>
+          <div class="day">27</div>
+          <div class="day">28</div>
+          <div class="day">29</div>
+          <div class="day">30</div>
+        </div>
       </div>
+      <!-- Фраза "5 сентября..." опущена ниже -->
       <p class="calendar-footer">5 сентября — наш особенный день!</p>
     </div>
   </section>
@@ -572,7 +630,7 @@
     </div>
   </section>
 
-  <!-- Новый разделитель с датой между 4 и 5 страницами -->
+  <!-- Разделитель с датой (ЧЕТВЕРТАЯ СТРАНИЦА) -->
   <div class="date-divider">
     <div class="date-divider-content">
       <span class="heart-icon-large"></span>

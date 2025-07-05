@@ -381,6 +381,135 @@
       opacity: 0.3;
     }
 
+    /* RSVP-форма */
+    .rsvp-section {
+      background-color: #fff;
+      padding: 80px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .rsvp-container {
+      max-width: 600px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    
+    .rsvp-form {
+      display: grid;
+      gap: 25px;
+    }
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .form-label {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: var(--text-color);
+      font-weight: 500;
+    }
+    
+    .form-input,
+    .form-select,
+    .form-textarea {
+      padding: 14px 18px;
+      border: 1px solid rgba(185, 142, 108, 0.3);
+      border-radius: 4px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      color: var(--text-color);
+      background-color: #fff;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(185, 142, 108, 0.2);
+    }
+    
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .rsvp-button {
+      padding: 14px 30px;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 500;
+      transition: background-color 0.3s, transform 0.3s;
+      margin-top: 10px;
+    }
+    
+    .rsvp-button:hover {
+      background-color: #a07756;
+      transform: translateY(-2px);
+    }
+    
+    .required-star {
+      color: #d9534f;
+    }
+    
+    .rsvp-note {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #777;
+      font-style: italic;
+    }
+    
+    .rsvp-success {
+      display: none;
+      text-align: center;
+      padding: 30px;
+      background-color: rgba(185, 142, 108, 0.1);
+      border-radius: 8px;
+      margin-top: 30px;
+    }
+    
+    .rsvp-success-icon {
+      font-size: 3rem;
+      color: #5cb85c;
+      margin-bottom: 20px;
+    }
+    
+    .manual-send {
+      display: none;
+      text-align: center;
+      margin-top: 30px;
+      padding: 20px;
+      background-color: rgba(185, 142, 108, 0.1);
+      border-radius: 8px;
+    }
+    
+    .manual-send a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 25px;
+      background-color: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+    
+    .manual-send a:hover {
+      background-color: #a07756;
+      transform: translateY(-2px);
+    }
+
     /* Адаптивность */
     @media (max-width: 768px) {
       .section-title {
@@ -418,7 +547,7 @@
       }
       
       .calendar-footer {
-        font-size: 2.6rem; /* Увеличен размер шрифта */
+        font-size: 2.6rem;
         padding: 10px 0 30px;
       }
       
@@ -429,6 +558,10 @@
       .date-divider-content {
         padding: 15px 30px;
         transform: translateY(-15px);
+      }
+      
+      .rsvp-section {
+        padding: 60px 20px;
       }
     }
 
@@ -481,7 +614,7 @@
       }
       
       .calendar-footer {
-        font-size: 2.0rem; /* Увеличен размер шрифта */
+        font-size: 2.0rem;
         padding: 8px 0 25px;
       }
       
@@ -497,6 +630,16 @@
       .date-divider-content {
         padding: 10px 20px;
         transform: translateY(-10px);
+      }
+      
+      .rsvp-section {
+        padding: 40px 15px;
+      }
+      
+      .manual-send a {
+        display: block;
+        margin: 10px auto;
+        max-width: 250px;
       }
     }
   </style>
@@ -665,6 +808,76 @@
     </div>
   </section>
 
+  <!-- RSVP-ФОРМА (ПОСЛЕДНЯЯ СЕКЦИЯ) -->
+  <section class="rsvp-section">
+    <h2 class="section-title">Подтвердите участие</h2>
+    <div class="rsvp-container">
+      <form id="rsvpForm" class="rsvp-form">
+        <div class="form-group">
+          <label class="form-label" for="name">Ваше имя <span class="required-star">*</span></label>
+          <input type="text" id="name" name="name" class="form-input" required>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">Контактная информация <span class="required-star">*</span></label>
+          <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 200px;">
+              <input type="tel" id="phone" name="phone" class="form-input" placeholder="Ваш телефон">
+            </div>
+            <div style="flex: 1; min-width: 200px;">
+              <input type="email" id="email" name="email" class="form-input" placeholder="Ваш email (необязательно)">
+            </div>
+          </div>
+          <p style="font-size: 0.9rem; color: #777; margin-top: 5px;">
+            Достаточно указать телефон или email
+          </p>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label" for="attending">Вы сможете присутствовать? <span class="required-star">*</span></label>
+          <select id="attending" name="attending" class="form-select" required>
+            <option value="">Выберите ответ</option>
+            <option value="yes">Да, с радостью приду!</option>
+            <option value="no">К сожалению, не смогу</option>
+          </select>
+        </div>
+        
+        <div class="form-group attending-details">
+          <label class="form-label" for="guests">Количество гостей (включая вас)</label>
+          <select id="guests" name="guests" class="form-select">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="more">Более 5</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label" for="message">Комментарий</label>
+          <textarea id="message" name="message" class="form-textarea" placeholder="Ваши пожелания или особые пожелания по питанию"></textarea>
+        </div>
+        
+        <button type="submit" class="rsvp-button">Отправить ответ</button>
+      </form>
+      
+      <div id="rsvpSuccess" class="rsvp-success">
+        <div class="rsvp-success-icon">✓</div>
+        <h3>Спасибо за ваш ответ!</h3>
+        <p>Мы получили ваше подтверждение участия и с нетерпением ждём встречи!</p>
+      </div>
+      
+      <div id="manualSend" class="manual-send">
+        <p>Если сообщение не отправилось автоматически:</p>
+        <a id="whatsappLink" href="#" target="_blank">Отправить через WhatsApp</a>
+        <a id="emailLink" href="#" target="_blank">Отправить по Email</a>
+      </div>
+      
+      <p class="rsvp-note">Пожалуйста, подтвердите ваше участие до 5 августа 2025 года</p>
+    </div>
+  </section>
+
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       // Таймер
@@ -701,6 +914,135 @@
 
       updateCountdown();
       setInterval(updateCountdown, 1000);
+      
+      // Обработка RSVP-формы
+      const rsvpForm = document.getElementById('rsvpForm');
+      const rsvpSuccess = document.getElementById('rsvpSuccess');
+      const manualSend = document.getElementById('manualSend');
+      const whatsappLink = document.getElementById('whatsappLink');
+      const emailLink = document.getElementById('emailLink');
+      const attendingSelect = document.getElementById('attending');
+      const guestsGroup = document.querySelector('.attending-details');
+      
+      // Показываем/скрываем поле с количеством гостей
+      function toggleGuestsVisibility() {
+        if (attendingSelect.value === 'yes') {
+          guestsGroup.style.display = 'flex';
+        } else {
+          guestsGroup.style.display = 'none';
+        }
+      }
+      
+      attendingSelect.addEventListener('change', toggleGuestsVisibility);
+      toggleGuestsVisibility(); // Инициализация при загрузке
+      
+      // Простая маска для телефона
+      const phoneInput = document.getElementById('phone');
+      phoneInput.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length > 11) value = value.slice(0, 11);
+        
+        let formattedValue = '';
+        if (value.length > 0) {
+          formattedValue = '+7';
+          if (value.length > 1) {
+            formattedValue += ' (' + value.substring(1, 4);
+          }
+          if (value.length > 4) {
+            formattedValue += ') ' + value.substring(4, 7);
+          }
+          if (value.length > 7) {
+            formattedValue += '-' + value.substring(7, 9);
+          }
+          if (value.length > 9) {
+            formattedValue += '-' + value.substring(9, 11);
+          }
+        }
+        e.target.value = formattedValue;
+      });
+      
+      // Обработка отправки формы
+      rsvpForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Проверяем контактные данные
+        const phone = document.getElementById('phone').value.trim();
+        const email = document.getElementById('email').value.trim();
+        
+        if (!phone && !email) {
+          alert('Пожалуйста, укажите телефон или email, чтобы мы могли с вами связаться');
+          return;
+        }
+        
+        // Собираем данные формы
+        const formData = {
+          name: document.getElementById('name').value,
+          phone: phone,
+          email: email,
+          attending: document.getElementById('attending').value === 'yes' ? 'Да' : 'Нет',
+          guests: document.getElementById('guests').value,
+          message: document.getElementById('message').value
+        };
+        
+        // Формируем текст сообщения
+        let messageText = `Подтверждение участия в свадьбе\n\n`;
+        messageText += `Имя: ${formData.name}\n`;
+        messageText += `Телефон: ${formData.phone || 'не указан'}\n`;
+        messageText += `Email: ${formData.email || 'не указан'}\n`;
+        messageText += `Присутствие: ${formData.attending}\n`;
+        
+        if (formData.attending === 'Да') {
+          messageText += `Количество гостей: ${formData.guests}\n`;
+        }
+        
+        messageText += `Комментарий: ${formData.message || 'нет комментария'}`;
+        
+        // Кодируем текст для URL
+        const encodedMessage = encodeURIComponent(messageText);
+        
+        // Формируем ссылки
+        const whatsappUrl = `https://wa.me/79892938880?text=${encodedMessage}`;
+        const emailUrl = `mailto:bondarev200047@gmail.com?subject=Подтверждение%20участия%20в%20свадьбе&body=${encodedMessage}`;
+        
+        // Устанавливаем ссылки
+        whatsappLink.href = whatsappUrl;
+        emailLink.href = emailUrl;
+        
+        // Пытаемся отправить автоматически
+        let sentSuccessfully = false;
+        
+        // Пробуем отправить через WhatsApp, если есть телефон
+        if (phone) {
+          try {
+            window.open(whatsappUrl, '_blank');
+            sentSuccessfully = true;
+          } catch (e) {
+            console.error('Ошибка отправки через WhatsApp:', e);
+          }
+        }
+        
+        // Если не отправилось через WhatsApp, пробуем через email
+        if (!sentSuccessfully && email) {
+          try {
+            window.open(emailUrl, '_blank');
+            sentSuccessfully = true;
+          } catch (e) {
+            console.error('Ошибка отправки по email:', e);
+          }
+        }
+        
+        // Если сообщение отправилось автоматически
+        if (sentSuccessfully) {
+          rsvpForm.style.display = 'none';
+          rsvpSuccess.style.display = 'block';
+          rsvpSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } 
+        // Если не отправилось автоматически
+        else {
+          manualSend.style.display = 'block';
+          manualSend.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
     });
   </script>
 </body>

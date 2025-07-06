@@ -292,6 +292,32 @@
       color: var(--text-color);
       font-weight: 500;
     }
+    
+    /* Стили для описаний событий */
+    .event-detail {
+      font-size: 1.6rem;
+      margin-top: 12px;
+      font-style: italic;
+      color: #666;
+      font-weight: 300;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Адаптивность для описаний */
+    @media (max-width: 768px) {
+      .event-detail {
+        font-size: 1.4rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .event-detail {
+        font-size: 1.2rem;
+        margin-top: 8px;
+      }
+    }
 
     /* Таймер */
     .countdown-section {
@@ -745,31 +771,31 @@
       <div class="schedule-item">
         <div class="time-text">16:00</div>
         <div class="event">Сбор гостей</div>
+        <div class="event-detail">Новые знакомства и развлечения!</div>
       </div>
       <div class="schedule-item">
         <div class="time-text">16:30</div>
-        <div class="event">Церемония</div>
+        <div class="event">Выездная регистрация</div>
+        <div class="event-detail">Самое главное событие в нашей жизни у красивой арки!</div>
       </div>
       <div class="schedule-item">
         <div class="time-text">17:00</div>
         <div class="event">Банкет</div>
+        <div class="event-detail">Время вкусной еды, танцев и веселья!</div>
       </div>
       <div class="schedule-item">
         <div class="time-text">21:30</div>
-        <div class="event">Вынос торта</div>
+        <div class="event">Торт</div>
+        <div class="event-detail">Время вкусного торта!</div>
       </div>
       <div class="schedule-item">
         <div class="time-text">22:00</div>
         <div class="event">Финал вечера</div>
+        <div class="event-detail">Время для красивого завершения вечера!</div>
       </div>
       <div class="schedule-item">
         <div class="time-text">23:00</div>
         <div class="event">Дискотека</div>
-      </div>
-      <div class="schedule-item">
-        <div class="time-text">23:30</div>
-        <!-- Обновленный текст -->
-        <div class="event">Завершение мероприятия</div>
       </div>
     </div>
   </section>
